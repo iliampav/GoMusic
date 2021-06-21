@@ -1,3 +1,14 @@
+- Initial Structure
+
+-- Criado a estutura basica para o app
+
+- GoMusic V0.1
+
+-- Criado o css da rota main para a busca pela banda / artista
+-- Adicionado o react-router-dom
+
+
+
 # Intergalaxy SA: Teste prático para Frontend Javascript Developer
 Este é o teste usado pela Intergalaxy SA para avaliar tecnicamente os candidatos a nossas vagas de Frontend.
 

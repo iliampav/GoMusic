@@ -1,7 +1,8 @@
-export const black = '#24292e';
-export const blue = '#0366d6';
-export const grey = '#586069';
-export const lightBlue = '#b3d1f3';
-export const lightGrey = '#e1e4e8';
-export const lightGreyTwo = '#aeaeaf';
-export const ultraLightGrey = '#eff3f7';
+// Main Colors
+export const mainGrey = '#171717';
+export const mainOrange = '#ec9820';
+export const mainOrangeHover = '#b57110'
+
+//Main Fonts styles
+export const tittleFont = 'montserrat';
+

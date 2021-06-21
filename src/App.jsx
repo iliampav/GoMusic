@@ -1,12 +1,13 @@
 import GlobalStyle from './styles/global_css';
-import SeachPage from './components/seachpage/SearchPage';
+
+import AppRouter from './routes/AppRouter';
 
 export function App() {
 
     return(
         <>
             <GlobalStyle />
-            <SeachPage />
+            <AppRouter />
         </>
     )    
 }
