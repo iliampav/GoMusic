@@ -21,8 +21,8 @@ export default function SearchPage() {
             <h1>GoMusic</h1>
             <Search>
                 <div>
-                    <input type="text"/>
-                    <button onClick={changePage} >search</button>
+                    <input type="text" placeholder='Search your favorite artist/band...'/>
+                    <button onClick={changePage} >Search</button>
                 </div>
                 <p>search for your artist or band</p>
             </Search>

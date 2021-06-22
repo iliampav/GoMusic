@@ -51,7 +51,7 @@ export const Container = styled.div`
     }
 `
 export const Search = styled.div`
-        position: relative;
+    position: relative;
     width: 90%;
     margin: 20px;
     display: flex;
@@ -77,6 +77,11 @@ export const Search = styled.div`
         &:focus {
             border: none;
             outline: 0;                
+        }
+
+        &::placeholder {
+            font-size: 1rem;
+            color: ${mainCss.orangeInputTextColor};
         }
     }
 

@@ -1,3 +1,9 @@
+Observações:
+- Para manter o projeto simples, como não será escalonado no momento, não utilizei o useReducer para pegar os dados das APIs e transferencia de dados entre as páginas do app.
+- Foi criado variaveis padrões no variable.js para podermos alterar os elementos ao mesmo tempo, assim podemos criar posteriormente alguns temas diferentes.
+
+
+
 - Initial Structure
 
 -- Criado a estutura basica para o app
@@ -7,7 +13,20 @@
 -- Criado o css da rota main para a busca pela banda / artista
 -- Adicionado o react-router-dom
 
+- GoMusic V0.2
 
+-- Criado o useHistory(Ao invpes do useReducer) para passar dados de forma simples para a página de listagem
+-- Criado o link entre as duas restApis (Youtube / TicketMaster)
+-- Ambas já estão atualizando com os dados dos artistas
+
+- GoMusic V0.3
+
+-- Foi omitido as keys do app principal no arquivo .env
+-- Adicionado a integração entre componentes filho > pai (Forma simplificada para nao utilizar o useReducer)
+-- Adicionado os links das redes sociais
+-- Adicionado a imagem principal
+-- Adicionado a verificação da existencia de dados para o carregamento da página
+-- Começado o layout dos videos do Youtube para serem expostos
 
 # Intergalaxy SA: Teste prático para Frontend Javascript Developer
 Este é o teste usado pela Intergalaxy SA para avaliar tecnicamente os candidatos a nossas vagas de Frontend.
