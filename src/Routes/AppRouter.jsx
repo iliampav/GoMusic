@@ -4,14 +4,18 @@ import {
     Route,
   } from "react-router-dom";
 
-  import SeachPage from '../components/seachpage/SearchPage';
+  import SearchPage from '../components/searchpage/SearchPage';
+  import SearchResult from '../components/SearchResult/SearchResult';
   
   export default function AppRouter() {
     return (
         <Router>
             <Switch>
                 <Route exact path="/">
-                    <SeachPage />
+                    <SearchPage />
+                </Route >
+                <Route path="/search">
+                    <SearchResult />
                 </Route >
             </Switch>
         </Router>
