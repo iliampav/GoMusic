@@ -6,6 +6,7 @@ import VideoContainer from '../videoContainer/VideoContainer';
 
 import { Container, BandProfile, VideoArea } from './SearchResult_css';
 import { AiFillYoutube, AiFillFacebook, AiFillInstagram } from 'react-icons/ai'
+import { FaItunes } from 'react-icons/fa';
 
 export default function SearchResult() {
 
@@ -27,7 +28,7 @@ export default function SearchResult() {
 
     useEffect(() => {
         Promise.all ([
-            fetch(`https://www.googleapis.com/youtube/v3/search?q=${search}&part=snippet&maxResults=10&type=video&key=${youtubeKey}`),
+            fetch(`https://www.googleapis.com/youtube/v3/search?q=${search}&part=snippet&maxResults=12&type=video&key=${youtubeKey}`),
             fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=${search}&apikey=${ticketMasterKey}`)
         ])
         .then(([youtubeList , ticketMasterList]) => {
@@ -46,23 +47,22 @@ export default function SearchResult() {
 
     // checa se existe data no array
     const withData = artist.length == 0 ? false : true 
-    let dataToUse = {}
-     
-    if (withData && artist.page.totalElements !== 0) {
-        dataToUse = {
-            tittle: newSearch.toUpperCase(),
-            image: artist._embedded.attractions[0].images[0].url,
-            website: artist._embedded.attractions[0].externalLinks.homepage[0].url,
-            facebook: artist._embedded.attractions[0].externalLinks.facebook[0].url,
-            instagram: artist._embedded.attractions[0].externalLinks.instagram[0].url,
-            youtube: artist._embedded.attractions[0].externalLinks.youtube[0].url,
-        }
-    }
+
+    //checa se existe links externos
+    const externalLink = artist.length == 0 ? false : artist._embedded.attractions[0].externalLinks
+
+    console.log(artist)
 
     return (
         <>
             <Container>
-                <Header tittle={dataToUse.tittle} inputSearch={headerSearch} />
+
+                {/* Checa se a pesquisa retornou algum dado */}
+                {withData && artist.page.totalElements !== 0 ?
+                <Header tittle={newSearch.toUpperCase()} inputSearch={headerSearch} />
+                :
+                ''
+                }
 
                 {/* Checa se a pesquisa retornou algum dado */}
                 {withData && artist.page.totalElements !== 0 ? 
@@ -70,28 +70,56 @@ export default function SearchResult() {
                     <>
                         <BandProfile>
                             <div id="bandProfile__tittle">
-                                <h1>{dataToUse.tittle}</h1>
-                                <img src={dataToUse.image}></img>
+                                <h1>{newSearch.toUpperCase()}</h1>
+                                <img src={artist._embedded.attractions[0].images[0].url}></img>
                             </div>
                             <ul>
+                                
+                                {/* Cada check desses, verifica se existe a rede social, essa é a do youtube */}
+                                {externalLink && externalLink.youtube
+                                    ?
+                                        <li>
+                                            <a href={externalLink.youtube[0].url} target="_blank">
+                                                <AiFillYoutube />
+                                                <p>Youtube</p>
+                                            </a>
+                                        </li>
+                                    :
+                                        ''
+                                    }
+                                {externalLink && externalLink.facebook
+                                    ?
                                 <li>
-                                    <a href={dataToUse.youtube} target="_blank">
-                                        <AiFillYoutube />
-                                        <p>Youtube</p>
-                                    </a>
-                                </li>
-                                <li>
-                                    <a href={dataToUse.facebook} target="_blank">
+                                    <a href={externalLink.facebook[0].url} target="_blank">
                                         <AiFillFacebook />
                                         <p>Facebook</p>
                                     </a>
                                 </li>
-                                <li>
-                                    <a href={dataToUse.instagram} target="_blank">
-                                        <AiFillInstagram />
-                                        <p>Instagram</p>
-                                    </a>
-                                </li>
+                                :
+                                    ''
+                                }
+                                {externalLink && externalLink.instagram
+                                    ? 
+                                    <li>
+                                        <a href={externalLink.instagram[0].url} target="_blank">
+                                            <AiFillInstagram />
+                                            <p>Instagram</p>
+                                        </a>
+                                    </li>
+                                    :
+                                    ''                                
+                                }  
+                                {externalLink && externalLink.itunes
+                                    ? 
+                                    <li>
+                                        <a href={externalLink.itunes[0].url} target="_blank">
+                                            <FaItunes />
+                                            <p>Itunes</p>
+                                        </a>
+                                    </li>
+                                    :
+                                    ''                                
+                                }                              
                             </ul>
                         </BandProfile>
                         <VideoArea>

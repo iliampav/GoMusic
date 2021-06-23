@@ -4,46 +4,46 @@ import * as mainCss from '../../styles/variable_css';
 import stagePicture from '../../images/stagepicture.jpg';
 
 export const Container = styled.div`
+    align-items: center;
     display: flex;
     flex-direction: column;
-    align-items: center;
-    justify-content: center;
     height: 100vh;
-    width: 100vw;
+    justify-content: center;
     position: relative;
+    width: 100vw;
 
     #container__background-img {
-        width: 100%;
-        height: 100%;
         background-image: url(${stagePicture});
         background-position: center;
         background-repeat: no-repeat;
         background-size: cover;
-        position: absolute;
-        z-index: -1;
-        top: 0;
         bottom: 0;
+        height: 100%;
         left: 0;
-        right: 0;
         opacity: 0.65;
+        position: absolute;
+        right: 0;
+        width: 100%;
+        top: 0;
+        z-index: -1;
     }
 
     h1 {
         background-color: ${mainCss.mainGrey};
         color: ${mainCss.mainOrange};
-        padding: 10px 0 10px 10px;
-        font-size: 25px;
         font-family: ${mainCss.tittleFont};
-        letter-spacing: 10px;
+        font-size: 25px;
         font-weight: 600;
+        letter-spacing: 10px;
+        padding: 10px 0 10px 10px;
     }
 
     img {
         flex: 1;
-        object-fit: cover;
         height: 100vh;
-        width: 100vw;
+        object-fit: cover;
         position: absolute;
+        width: 100vw;
     }
 
     @media screen and (max-width: 700px) { 
@@ -51,19 +51,19 @@ export const Container = styled.div`
     }
 `
 export const Search = styled.div`
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 20px;
     position: relative;
     width: 90%;
-    margin: 20px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
 
     p {
-        margin: 20px;
-        font-size: 16px;
-        color: ${mainCss.mainOrange};
         background-color: ${mainCss.mainGrey};
+        color: ${mainCss.mainOrange};
+        font-size: 16px;
+        margin: 20px;
         padding: 10px;
     }
 
@@ -71,8 +71,8 @@ export const Search = styled.div`
         background: ${mainCss.mainOrange};
         border: none;
         font-size: 1.4em;       
-        width: auto;
         padding: 10px;
+        width: auto;
 
         &:focus {
             border: none;
@@ -80,8 +80,8 @@ export const Search = styled.div`
         }
 
         &::placeholder {
-            font-size: 1rem;
             color: ${mainCss.orangeInputTextColor};
+            font-size: 1rem;
         }
     }
 
@@ -92,14 +92,14 @@ export const Search = styled.div`
     button {
         background: ${mainCss.mainOrange};
         border:none;           
-        padding: 10px;
-        font-size: 1.4em;
         border-left: 1px solid rgba(23,23,23,0.1);
         cursor: pointer;  
         display: inline-block;  
+        font-size: 1.4em;
+        padding: 10px;
+        transition: ease-out 0.5s;
         -webkit-transition: ease-out 0.4s;
         -moz-transition: ease-out 0.4s;
-        transition: ease-out 0.5s;
 
         &:hover {
             background: ${mainCss.mainOrangeHover};

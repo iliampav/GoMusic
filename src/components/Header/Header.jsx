@@ -6,6 +6,7 @@ export default function Header(props) {
 
     const searchPage = () => {
         const newSeach = document.getElementById('inputNewSearch').value
+        window.scrollTo({top: 0, behavior: 'smooth'})
         props.inputSearch(newSeach)
     }
 

@@ -2,13 +2,17 @@ import styled from 'styled-components';
 import * as mainCss from '../../styles/variable_css';
 
 export const Area = styled.div`
+    align-items: center;
+    background-color: ${mainCss.mainOrange};
+    border-bottom: 1px solid ${mainCss.mainBlack};
+    display: flex; 
+    justify-content: center;
     height: 80px;
     width: 100vw;
-    display: flex; 
-    align-items: center;
-    justify-content: center;
-    border-bottom: 1px solid ${mainCss.mainBlack};
-    background-color: ${mainCss.mainOrange};
+    position: fixed;
+    top:0;
+    left: 0;
+    z-index: 50;
 
     @media screen and (max-width: 900px) { 
         background-color: ${mainCss.mainBlack};
@@ -18,15 +22,15 @@ export const Area = styled.div`
 
 export const Container = styled.div`
     align-items: center;
-    max-width: 1300px;
-    width: 100%;
     display: flex; 
     flex-direction: row;
     justify-content: space-between;  
+    max-width: 1300px;
+    width: 100%;
     
     div {
-        width: 100%;
         display: flex;
+        width: 100%;
     }
 
     .container__tittle {
@@ -39,53 +43,54 @@ export const Container = styled.div`
     }    
 
     .container__search {
+        font-weight: 500;
         justify-content: flex-start;
         margin-left: 10px;
         margin:  9px 22px 9px 6px;
-        font-weight: 500;
 
         input {            
             background: ${mainCss.mainBlack};
             border: none;
-            font-size: 1em;  
             color: ${mainCss.mainOrange};
-            width: 100%;
-            padding: 10px;
+            font-size: 1em;  
             font-weight: 600;
+            padding: 10px;
+            width: 100%;
 
             &:focus {
+                color: ${mainCss.mainOrange};
                 border: none;
                 outline: 0;               
             
             }
 
             &::placeholder {
+                color: ${mainCss.mainOrange};
                 font-size: 1rem;
-                color: ${mainCss.mainOrangeHover};
                 font-weight: 400;
             }
         }
 
         button {
+            align-items: center ;
             background: ${mainCss.mainBlack};
-            color: ${mainCss.mainOrange};
             border:none;           
-            padding: 10px;
-            padding-right: 15px;
-            font-size: 1.4em;
             border-left: 1px solid rgba(224,148,42, 0.3);
+            color: ${mainCss.mainOrange};
             cursor: pointer;  
             display: flex;
-            align-items: center ;
+            font-size: 1.4em;
             justify-content: center;
+            padding: 10px;
+            padding-right: 15px;
             -webkit-transition: ease-out 0.4s;
             -moz-transition: ease-out 0.4s;
             transition: ease-out 0.5s;            
 
             svg {
                 height: 18px;
-                width: 18px;
                 margin: 0 5px;
+                width: 18px;
             }
 
             &:hover {
@@ -95,16 +100,16 @@ export const Container = styled.div`
     }    
 
     h3 {
-        font-size: 2em;
         font-family: ${mainCss.tittleFont};
+        font-size: 2em;
         font-weight: 600;
     }
 
     img {
-        height: 35px;
-        width: 35px;
         border-radius: 50%;
+        height: 35px;
         margin-right: 25px;
+        width: 35px;
     }
     
     @media screen and (max-width: 900px) { 
@@ -121,8 +126,8 @@ export const Container = styled.div`
             width: 80%;
 
         input {            
-            color: ${mainCss.mainBlack};
             background: ${mainCss.mainOrange};
+            color: ${mainCss.mainBlack};
 
             &::placeholder {
                 color: ${mainCss.orangeInputTextColor};
@@ -131,13 +136,13 @@ export const Container = styled.div`
 
         button {
             background: ${mainCss.mainOrange};
-            color: ${mainCss.mainBlack};
             border-left: 1px solid rgba(23,23,23,0.1);        
+            color: ${mainCss.mainBlack};
 
             svg {
                 height: 14px;
-                width: 14px;
                 margin: 0 5px;
+                width: 14px;
             }
 
             &:hover {

@@ -1,31 +1,25 @@
+import Popup from '../popup/Popup';
+
 import { Container, ImageContainer, ItemDescription, Title, CreatedBy } from "./videoContainer_css";
 
 export default function VideoContainer({productList}) {  
 
     const newDate = productList.snippet.publishedAt.match(/[0-9]{4}-[0-9]{2}-[0-9]{2}/)
 
-    const params = `
-    scrollbars=no,
-    resizable=no,
-    status=no,
-    location=no,
-    toolbar=no,
-    menubar=no,
-    width=80vw,
-    height=50vh,
-    left=100,
-    top=100
-    `
-
     const playVideo = () => {
-        window.open(`https://www.youtube.com/watch?v=${productList.id.videoId}`, 'video player', params)
+
+        console.log(productList.id.videoId)
+        console.log(document.getElementById(`iframe-${productList.id.videoId}`))
+        document.getElementById(`${productList.id.videoId}`).classList.toggle('active')
+        document.getElementById(`iframe-${productList.id.videoId}`).src=`https://www.youtube.com/embed/${productList.id.videoId}`
+
     }
 
     return (
         <>
-            <Container>
+            <Container>                      
                 <div className="container__area-size">
-                    <ImageContainer>
+                    <ImageContainer> 
                         <a onClick={playVideo}/>
                         <img src={productList.snippet.thumbnails.high.url} />                        
                     </ImageContainer>
@@ -37,7 +31,8 @@ export default function VideoContainer({productList}) {
                         <p>{newDate}</p>
                     </CreatedBy>
                     <ItemDescription>{productList.snippet.description}</ItemDescription>
-                </div>                
+                    <Popup idName={productList.id.videoId} />
+                </div>          
             </Container>
         </>
     )
