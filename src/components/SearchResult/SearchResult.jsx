@@ -27,7 +27,7 @@ export default function SearchResult() {
 
     useEffect(() => {
         Promise.all ([
-            fetch(`https://www.googleapis.com/youtube/v3/search?q=${search}&part=snippet&key=${youtubeKey}`),
+            fetch(`https://www.googleapis.com/youtube/v3/search?q=${search}&part=snippet&maxResults=10&type=video&key=${youtubeKey}`),
             fetch(`https://app.ticketmaster.com/discovery/v2/attractions.json?keyword=${search}&apikey=${ticketMasterKey}`)
         ])
         .then(([youtubeList , ticketMasterList]) => {
@@ -71,7 +71,6 @@ export default function SearchResult() {
                         <BandProfile>
                             <div id="bandProfile__tittle">
                                 <h1>{dataToUse.tittle}</h1>
-                                <a href={dataToUse.website}></a>
                                 <img src={dataToUse.image}></img>
                             </div>
                             <ul>
@@ -98,7 +97,7 @@ export default function SearchResult() {
                         <VideoArea>
                             {
                                 list.items ?
-                                list.items.map(video => {                            
+                                list.items.map(video => {                         
                                     return <VideoContainer key={video.id.videoId} productList={video} />
                                 }) 
                                 :

@@ -100,7 +100,7 @@ export const VideoArea = styled.ul`
     display: flex; 
     flex-direction: row;
     flex-wrap: wrap;
-    justify-content: space-between;
+    justify-content: center;
     margin-bottom: 30px;
     max-width: 1300px;
     position: relative;

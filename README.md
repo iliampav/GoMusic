@@ -28,6 +28,12 @@ Observações:
 -- Adicionado a verificação da existencia de dados para o carregamento da página
 -- Começado o layout dos videos do Youtube para serem expostos
 
+- GoMusic V0.4
+
+-- Terminado o layout da pagina que mostra os videos
+-- adicionado uma window.open para abrir o link do video
+-- Adicionado todas as informações para a página
+
 # Intergalaxy SA: Teste prático para Frontend Javascript Developer
 Este é o teste usado pela Intergalaxy SA para avaliar tecnicamente os candidatos a nossas vagas de Frontend.
 
