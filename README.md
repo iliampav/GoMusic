@@ -55,8 +55,3 @@ Versões do desenvolvimento
 -- Criado a verificação da existência das redes sociais
 -- Criado o popUp para rodar os videos ao serem chamados
 -- Fixado o header, com retorno ao topo da página ao ser feito uma nova pesquisa
-
-- GoMusic V1.0.1
-
--- Adicionado um server node.js com express
--- App começou a rodar online no link: https://git.heroku.com/intergalaxy-gomusic.git
